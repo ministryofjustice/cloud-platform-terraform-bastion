@@ -28,7 +28,6 @@ BRANCH = SecureRandom.alphanumeric
 
 def main
   authorized_keys = build_authorized_keys
-  puts authorized_keys
 
   content_sha, encoded_authorized_keys = compare_with_existing_keys(authorized_keys)
 
