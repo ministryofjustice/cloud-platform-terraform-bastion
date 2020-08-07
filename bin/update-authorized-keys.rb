@@ -30,14 +30,15 @@ def main
   authorized_keys = build_authorized_keys
   puts authorized_keys
 
-  # content_sha, encoded_authorized_keys = compare_with_existing_keys(authorized_keys)
+  content_sha, encoded_authorized_keys = compare_with_existing_keys(authorized_keys)
 
-  # if encoded_authorized_keys.nil?
-  #   puts "No new publicKeys to raise PR"
-  # else
-  #   create_new_branch_commit(content_sha, encoded_authorized_keys)
-  #   puts create_pull_request
-  # end
+  if encoded_authorized_keys.nil?
+    puts "No new publicKeys to raise PR"
+  else
+    create_new_branch_commit(content_sha, encoded_authorized_keys)
+    puts create_pull_request
+    exit 1
+  end
 end
 
 def build_authorized_keys
