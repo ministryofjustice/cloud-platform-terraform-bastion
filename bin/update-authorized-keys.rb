@@ -102,7 +102,7 @@ def create_new_branch_commit(content_sha, encoded_authorized_keys)
   put_query(
     json: get_update_content_query(content_sha, encoded_authorized_keys),
     token: ENV.fetch("GITHUB_TOKEN"),
-    api_url: api_url
+    api_url: GITHUB_REST_API_URL + "/contents/files/authorized_keys.txt"
   )
 end
 
