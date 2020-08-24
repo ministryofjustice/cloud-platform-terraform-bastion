@@ -29,7 +29,7 @@ BRANCH = SecureRandom.alphanumeric
 def main
   authorized_keys = build_authorized_keys
 
-  content_sha, encoded_authorized_keys = compare_with_existing_keys(authorized_keys)
+  encoded_authorized_keys, content_sha  = compare_with_existing_keys(authorized_keys)
 
   if encoded_authorized_keys.nil?
     puts "No new publicKeys to raise PR"
