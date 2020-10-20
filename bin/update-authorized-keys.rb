@@ -35,7 +35,8 @@ def main
     puts "No new publicKeys to raise PR"
   else
     create_new_branch_commit(content_sha, encoded_authorized_keys)
-    puts create_pull_request
+    json = create_pull_request
+    puts "publicKeys of Webops team members to access bastion node has changed. Check the PR: #{json[:url]}"
     exit 1
   end
 end
