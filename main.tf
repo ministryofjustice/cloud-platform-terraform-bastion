@@ -60,6 +60,18 @@ data "template_file" "authorized_keys_manager" {
 
   vars = {
     authorized_keys_url = local.authorized_keys_url
+    username            = "admin"
+  }
+}
+
+data "template_file" "authorized_keys_for_kops" {
+  template = file(
+    "${path.module}/resources/bastion/authorized_keys_manager.service",
+  )
+
+  vars = {
+    authorized_keys_url = local.authorized_keys_url
+    username            = "ubuntu"
   }
 }
 
